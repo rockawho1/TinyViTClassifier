@@ -1,6 +1,6 @@
 import torch
-from TinyViT import TinyViT
-from Runner import Runner
+from model.TinyViT import TinyViT
+from utils.Runner import Runner
 import json
 
 def main():
