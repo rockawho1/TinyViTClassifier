@@ -19,6 +19,7 @@ def main():
 
     best_val = 0.0
     for epoch in range(1, config["training"]["epochs"] + 1):
+        print(f"Started epoch {epoch}")
         loss, acc, dur = runner.train_one_epoch(epoch)
         val_loss, val_acc = runner.evaluate(epoch)
         print(f"Epoch {epoch} finished in {dur:.1f}s | train_loss={loss:.4f} train_acc={acc:.4f} | val_loss={val_loss:.4f} val_acc={val_acc:.4f}")

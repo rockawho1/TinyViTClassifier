@@ -19,26 +19,16 @@ class DatasetLoader:
 
         self.dataset_metadata = None
 
-        # self.data_dist = {
-        #     "Cifar10": {
-        #         "mean": [0.4914, 0.4822, 0.4465],
-        #         "std": [0.2470, 0.2435, 0.2616],
-        #     },
-        #     "Food101": {
-        #         "mean": [0.5493, 0.4450, 0.3435],
-        #         "std": [0.2729, 0.2758, 0.2798],
-        #     },
-        # }
-
     def initialize(self, batch_size: int, dataset_name: str) -> None:
         self.dataset_name = dataset_name
         self.batch_size = batch_size
         assert self.dataset_name in ["Cifar10", "Food101"]
 
-        with open('../data/datasets_metadata.json', 'r') as f:
+        with open('data/datasets_metadata.json', 'r') as f:
             datasets_metadata = json.load(f)
             self.dataset_metadata = datasets_metadata[self.dataset_name]
 
+        print(f"Loading data from dataset {self.dataset_name}...")
 
         # # Compute dataset statistics
         # # Runs here learning purposes.
@@ -85,6 +75,8 @@ class DatasetLoader:
 
         self.train_loader = DataLoader(self.train_set, batch_size=self.batch_size, shuffle=True, num_workers=2, pin_memory=True)
         self.test_loader = DataLoader(self.test_set, batch_size=self.batch_size, shuffle=False, num_workers=2, pin_memory=True)
+
+        print("Loading done!")
 
     @staticmethod
     def compute_dataset_stats(dataset_name: str):
