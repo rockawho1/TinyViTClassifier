@@ -30,7 +30,7 @@
     "log_per_class_acc": false
   },
   "training": {
-    "batch_size": 128,
+    "batch_size": 512,
     "epochs": 50,
     "learning_rate": 3e-4,
     "weight_decay": 0.05,
