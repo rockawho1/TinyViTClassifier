@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from model.PatchEmbed import PatchEmbed
 from model.PositionEmbeds import PositionEmbeds
-from TransformerEncoderBlock import TransformerBlock
+from model.TransformerEncoderBlock import TransformerBlock
 
 class TinyViT(nn.Module):
     def __init__(self, config: dict):
